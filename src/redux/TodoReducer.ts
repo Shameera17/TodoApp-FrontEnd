@@ -1,21 +1,32 @@
 // redux implementation
 import {ADD_TODO,DELETE_TODO, UPDATE_TODO,SET_NEW_TODO, RETRIEVE_TODOS, ActionTypes} from './actionTypes'
 import {addTodo, deleteTodo, updateTodo, setNewTodo} from './actionCreators'
-const initialState = {
+import {ITodo,ITodoState} from './type'
+
+
+
+const initialState : ITodoState = {
     todos: [],
-    newTodo: ""
 }
 
-function todoReducer(state = initialState, action: ActionTypes){
+function todoReducer(state:ITodoState = initialState, action: ActionTypes){
 switch(action.type){
-    case SET_NEW_TODO : return {
+    case RETRIEVE_TODOS : return {
         ...state,
         todos: action.payload
     }
-    case DELETE_TODO : return {
+    case SET_NEW_TODO : return {
         
+    }
+    case DELETE_TODO : return {
+
+    }
+    case UPDATE_TODO : return {
+
     }
 default:
     return state
 }
 }
+
+export default todoReducer

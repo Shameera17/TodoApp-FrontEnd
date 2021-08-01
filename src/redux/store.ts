@@ -1,2 +1,0 @@
-import {ITodo} from './type'
-

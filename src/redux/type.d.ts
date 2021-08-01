@@ -5,7 +5,6 @@ export interface ITodo {
     end_date : string
 }
 
-interface TodoProps {
+export interface ITodoState {
     todos : Todo[];
-    newTodo : string
 }
