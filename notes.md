@@ -19,3 +19,9 @@ yarn add -D
 @types/axios
 
 
+1. implement the store
+2. create the actions Types
+3. create the action creators
+
+
+

@@ -1,32 +1,46 @@
+import { TodoInterface, Store } from "./type";
+import {
+  TODO_SUCCESS,
+  TodoDispatchTypes,
+  TODO_FAIL,
+  TODO_LOADING,
+  ADD_TODO,
+} from "./actionTypes";
+import { AddTodo } from "./actionCreators";
+
+
+
 // redux implementation
-import {ADD_TODO,DELETE_TODO, UPDATE_TODO,SET_NEW_TODO, RETRIEVE_TODOS, ActionTypes} from './actionTypes'
-import {addTodo, deleteTodo, updateTodo, setNewTodo} from './actionCreators'
-import {ITodo,ITodoState} from './type'
+const initialState = {
+  loading: false,
+  todos: [],
+  newTodo: ""
+};
 
-
-
-const initialState : ITodoState = {
-    todos: [],
-}
-
-function todoReducer(state:ITodoState = initialState, action: ActionTypes){
-switch(action.type){
-    case RETRIEVE_TODOS : return {
+const todoReducer = (
+  state: Store = initialState,
+  action: TodoDispatchTypes
+) => { 
+  switch (action.type) {
+    case TODO_FAIL:
+      return {
+        loading: false,
+      };
+    case TODO_LOADING:
+      return {
+        loading: true,
+      };
+    case TODO_SUCCESS:
+      return {
         ...state,
-        todos: action.payload
-    }
-    case SET_NEW_TODO : return {
-        
-    }
-    case DELETE_TODO : return {
+        loading: false,
+        todos: action.payload,
+      };
+      
 
-    }
-    case UPDATE_TODO : return {
+    default:
+      return state;
+  }
+};
 
-    }
-default:
-    return state
-}
-}
-
-export default todoReducer
+export default todoReducer;

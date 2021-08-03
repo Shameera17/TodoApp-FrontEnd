@@ -1,10 +1,11 @@
-export interface ITodo {
-    id : any | null
+export interface TodoInterface {
+    _id : string
     title : string
     active_state : boolean
     end_date : string
 }
 
-export interface ITodoState {
-    todos : Todo[];
+export interface Store {
+    todos : TodoInterface[];
+    newTodo: string
 }

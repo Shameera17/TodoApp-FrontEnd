@@ -1,21 +1,24 @@
-import {ITodo} from './type'
-export const ADD_TODO = 'ADD_TODO'
-export const DELETE_TODO = 'DELETE_TODO'
-export const UPDATE_TODO = 'UPDATE_TODO'
+import { TodoInterface } from "./type";
+export const TODO_LOADING = "TODO_LOADING";
+export const TODO_FAIL = "TODO_FAIL";
+export const TODO_SUCCESS = "TODO_SUCCESS";
 
-export const SET_NEW_TODO = 'SET_NEW_TODO'
-// retrieve all the todos
-export const RETRIEVE_TODOS = 'RETRIEVE_TODOS'
-
-export type ActionTypes = 
-| {type : typeof RETRIEVE_TODOS; payload: ITodo[]}
-| {type : typeof ADD_TODO}
-| {type : typeof DELETE_TODO; payload: any}
-| {type : typeof UPDATE_TODO; payload: any}
-| {type : typeof SET_NEW_TODO; payload:{
-    title:string,
-    end_date: string
-}}
+export const ADD_TODO = "ADD_TODO";
+export const DELETE_TODO = "DELETE_TODO";
+export const UPDATE_TODO = "UPDATE_TODO";
+export const SET_NEW_TODO = "SET_NEW_TODO";
 
 
-
+export type TodoDispatchTypes =
+  | { type: typeof TODO_LOADING }
+  | { type: typeof TODO_FAIL }
+  | { type: typeof TODO_SUCCESS; payload: TodoInterface[] }
+  | {
+      type: typeof ADD_TODO;
+      payload: {
+        title: string;
+        end_date: string;
+      };
+    }
+  | { type: typeof DELETE_TODO; payload: string }
+  | { type: typeof UPDATE_TODO; payload: string };
