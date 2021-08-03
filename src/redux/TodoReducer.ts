@@ -11,14 +11,14 @@ import { AddTodo } from "./actionCreators";
 
 
 // redux implementation
-const initialState = {
+const initialState : any = {
   loading: false,
   todos: [],
-  newTodo: ""
+  
 };
 
 const todoReducer = (
-  state: Store = initialState,
+  state = initialState,
   action: TodoDispatchTypes
 ) => { 
   switch (action.type) {

@@ -10,16 +10,18 @@ import DatePicker from '@material-ui/lab/DatePicker';
 import DateAdapter from '@material-ui/lab/AdapterDateFns';
 import Dialog from '@material-ui/core/Dialog';
 import { AddTodo } from "../../redux/actionCreators";
+import { useDispatch } from "react-redux";
 function TodoAdd() {
   const [Title, setTitle] = useState("");
   const [EndDate, setEndDate] = useState("");
-
+  const dispatch = useDispatch()
+  
   const onHandleClick = (event: { preventDefault: () => void }) => {
     console.log("title", Title);
     console.log("date", EndDate);
     event.preventDefault();
     try {
-      AddTodo(Title, EndDate);
+      dispatch(AddTodo(Title, EndDate))
     } catch (error) {
       console.log("attemp failed");
     } finally {
@@ -38,7 +40,15 @@ function TodoAdd() {
           setTitle(e.target.value);
         }}
       />
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <TextField
+        label="New Todo"
+        name="End Date"
+        value={EndDate}
+        
+        onChange={(e) => {
+          setEndDate(e.target.value);
+        }}/>
+      {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           label="End Date"
           value={EndDate}
@@ -47,7 +57,7 @@ function TodoAdd() {
           }}
           renderInput={(params) => <TextField {...params} />}
         />
-      </LocalizationProvider>
+      </LocalizationProvider> */}
       <Button onClick={onHandleClick}>Add Todo</Button>
     </Grid>
   );

@@ -36,7 +36,7 @@ export const GetTodos = () => async (dispatch: Dispatch<TodoDispatchTypes>) => {
 export const AddTodo = (title: string, end_date: string) => async () => {
   try {
     const data = { title, end_date };
-    console.log("data",data)
+    console.log("data-000",data)
     const postResponse = await http.post("/todos", data);
     console.log("response", postResponse)
   } catch (error) {

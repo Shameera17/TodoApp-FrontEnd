@@ -7,5 +7,6 @@ export interface TodoInterface {
 
 export interface Store {
     todos : TodoInterface[];
-    newTodo: string
+    loading : boolean
 }
+
