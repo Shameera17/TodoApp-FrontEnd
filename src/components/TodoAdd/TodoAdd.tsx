@@ -52,7 +52,7 @@ function TodoAdd() {
         className="btn"
         variant="contained"
         onClick={onHandleClick}
-        color="secondary"
+        color="warning"
       >
         Add Todo
       </Button>

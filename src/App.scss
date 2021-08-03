@@ -23,10 +23,10 @@
 
 .addTodo {
   width: 50rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
 
   .inputText {
-    width: 25rem;
+    width: 26rem;
     margin: 1rem;
   }
   .inputText2 {
@@ -34,7 +34,7 @@
     margin: 1rem;
   }
   .btn {
-    width: 8rem;
+    width: 10rem;
     height: 3.3rem;
     margin: 1rem;
   }
@@ -66,8 +66,10 @@
 
     .btnGroup {
       width: 12rem;
+      
       .btn{
         margin: 0 0.2rem;
+        width: 5rem;
       }
     }
   }

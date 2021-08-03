@@ -15,6 +15,8 @@ import {
 
 function TodoList() {
   const [Reload, setReload] = useState(0);
+  const [Todos, setTodos] = useState([]);
+
   const todos = useSelector((state: any) => state.todos);
 
   let action = "delete";
@@ -24,18 +26,25 @@ function TodoList() {
   }, [Reload]);
 
   useEffect(() => {
-    console.log("Refresh");
+    setTodos(todos);
   }, [Reload]);
 
   function onHandleClick(id: string, action: string) {
     if (action === "update") {
-      dispatch(UpdateTodoState(id));
-      setReload((Reload) => Reload);
+      try {
+        dispatch(UpdateTodoState(id));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setReload((Reload) => Reload + 1);
+      }
     } else if (action === "delete") {
       try {
         dispatch(DeleteTodo(id));
+      } catch (e) {
+        console.log(e);
       } finally {
-        setReload((Reload) => Reload);
+        setReload((Reload) => Reload + 1);
       }
     }
   }
@@ -72,7 +81,7 @@ function TodoList() {
             variant="contained"
             color="error"
             value={todo._id}
-            onClick={() => onHandleClick(todo._id, action)}
+            onClick={() => {onHandleClick(todo._id, action)}}
           >
             Delete
           </Button>
@@ -92,6 +101,15 @@ function TodoList() {
   return (
     <>
       <Card className="todos">
+        <Button
+          className="btn"
+          variant="outlined"
+          onClick={() => {
+            setReload((value) => value + 1);
+          }}
+        >
+          Reload
+        </Button>
         {todos?.todos?.map((todo: any, index: number) => {
           return (
             <div key={index}>
