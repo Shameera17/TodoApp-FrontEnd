@@ -46,7 +46,8 @@ export const AddTodo = (title: string, end_date: string) => async () => {
 };
 export const UpdateTodoState = (id: string) => async () => {
   try {
-    const response = await http.put(`/${id}`);
+    console.log(id)
+    const response = await http.put(`/todos/${id}`);
     console.log("response", response.data);
   } catch (error) {
     console.log("error");
@@ -55,7 +56,8 @@ export const UpdateTodoState = (id: string) => async () => {
 
 export const DeleteTodo = (id: string) => async () => {
   try {
-    const response = await http.delete(`/posts/${id}`);
+    console.log(id)
+    const response = await http.delete(`/todos/${id}`);
     console.log("response", response.data);
   } catch (error) {
     console.log("error");
