@@ -9,9 +9,9 @@ import {
 const Header = () => {
     return (
         <div >
-            <Card >
+            <Card className="topHeader">
                 <CardContent className="header">
-                    <Typography variant="h3">Todo App</Typography>
+                    <Typography className="headerText" variant="h3">Todo App</Typography>
                 </CardContent>
             </Card>
         </div>

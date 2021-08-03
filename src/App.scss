@@ -3,8 +3,23 @@
   padding: 0;
 
   text-align: center;
-  text-align: center;
 }
+.topHeader{
+  // position: fixed;
+  width: 100%;
+  // margin: 0.4rem;
+  .header{
+    background-color: black;
+    border-radius: 2px;
+    
+    .headerText{
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      font-weight: 700;
+    }
+  }
+}
+
 
 .addTodo {
   width: 50rem;
@@ -26,20 +41,34 @@
 }
 
 .todos {
-  width: 50rem;
-  margin: 1rem auto;
-  padding: 0.5rem;
+  width: 60rem;
+  margin: 2rem auto;
+  padding: 0.6rem;
 
   .todo {
+    height: 1.1rem;
+    margin: 1rem;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    background-color: #cddafd;
+    border-radius: 1rem;
 
     .labels {
-      width: 15rem;
+      width: 20rem;
+      font-size: large;
+      font-weight: 500;
+      
+    }
+    .done{
+      text-decoration: line-through 2px;
     }
 
     .btnGroup {
       width: 12rem;
+      .btn{
+        margin: 0 0.2rem;
+      }
     }
   }
 }

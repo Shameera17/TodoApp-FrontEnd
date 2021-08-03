@@ -1,27 +1,24 @@
-import React, { useState } from "react";
-import {
-  TextField,
-  Button,
-  Grid,
-} from "@material-ui/core";
-import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
-import DatePicker from '@material-ui/lab/DatePicker';
-import DateAdapter from '@material-ui/lab/AdapterDateFns';
-import Dialog from '@material-ui/core/Dialog';
+import React, { useState, useEffect } from "react";
+import { TextField, Button, Grid } from "@material-ui/core";
 import { AddTodo } from "../../redux/actionCreators";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
+
 function TodoAdd() {
   const [Title, setTitle] = useState("");
   const [EndDate, setEndDate] = useState("");
-  const dispatch = useDispatch()
-  
+  const [Count, setCount] = useState(0);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("Refresh");
+  }, [Count]);
+
   const onHandleClick = (event: { preventDefault: () => void }) => {
-    console.log("title", Title);
-    console.log("date", EndDate);
-    event.preventDefault();
     try {
-      dispatch(AddTodo(Title, EndDate))
+      setCount(Count + 1);
+
+      dispatch(AddTodo(Title, EndDate));
     } catch (error) {
       console.log("attemp failed");
     } finally {
@@ -32,7 +29,7 @@ function TodoAdd() {
   return (
     <Grid className="addTodo">
       <TextField
-      className="inputText"
+        className="inputText"
         label="Todo Title"
         name="title"
         value={Title}
@@ -42,29 +39,29 @@ function TodoAdd() {
         }}
       />
       <TextField
-      className="inputText2"
+        className="inputText2"
         label="YYYY-MM-DD"
         name="End Date"
         value={EndDate}
         variant="outlined"
-        
         onChange={(e) => {
           setEndDate(e.target.value);
-        }}/>
-        
-      {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DatePicker
-          label="End Date"
-          value={EndDate}
-          onChange={(newValue : string) => {
-            setEndDate(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </LocalizationProvider> */}
-      <Button className="btn" variant="contained" onClick={onHandleClick}>Add Todo</Button>
+        }}
+      />
+      <Button
+        className="btn"
+        variant="contained"
+        onClick={onHandleClick}
+        color="secondary"
+      >
+        Add Todo
+      </Button>
     </Grid>
   );
 }
 
 export default TodoAdd;
+
+TodoAdd.propTypes = {
+  newValue: PropTypes.string,
+};
