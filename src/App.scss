@@ -1,0 +1,30 @@
+.App {
+  margin: 0;
+  padding: 0;
+  
+  text-align: center;
+  text-align: center;
+  
+
+  
+}
+
+.header {
+  
+}
+
+.addTodo {
+  margin: 2rem auto;
+  
+}
+
+.todos {
+  width: 50rem;
+  margin: 2rem auto;
+  padding: 1rem;
+
+  .todo{
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

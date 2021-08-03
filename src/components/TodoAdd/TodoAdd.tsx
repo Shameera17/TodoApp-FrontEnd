@@ -30,24 +30,26 @@ function TodoAdd() {
     }
   };
   return (
-    <Grid>
+    <Grid className="addTodo">
       <TextField
-        label="New Todo"
+        label="Todo Title"
         name="title"
         value={Title}
-        
+        variant="outlined"
         onChange={(e) => {
           setTitle(e.target.value);
         }}
       />
       <TextField
-        label="New Todo"
+        label="YYYY-MM-DD"
         name="End Date"
         value={EndDate}
+        variant="outlined"
         
         onChange={(e) => {
           setEndDate(e.target.value);
         }}/>
+        
       {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           label="End Date"
@@ -58,7 +60,7 @@ function TodoAdd() {
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider> */}
-      <Button onClick={onHandleClick}>Add Todo</Button>
+      <Button variant="contained" onClick={onHandleClick}>Add Todo</Button>
     </Grid>
   );
 }

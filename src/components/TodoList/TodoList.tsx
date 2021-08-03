@@ -33,32 +33,57 @@ function TodoList() {
       setReload(Reload + 1);
     }
   }
+
+  // check the todo is done or not
+  const renderButtons = (todo: any) => {
+    if (todo.active_state === true) {
+      return (
+        <div>
+          <Button
+            variant="contained"
+            color="secondary"
+            value={todo._id}
+            onClick={() => onHandleClick(todo._id, action)}
+          >
+            Delete
+          </Button>
+        </div>
+      );
+    } else if (todo.active_state === false) {
+      return (
+        <div>
+          <Button
+            variant="contained"
+            color="primary"
+            value={todo._id}
+            onClick={() => onHandleClick(todo._id, (action = "update"))}
+          >
+            Done
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            value={todo._id}
+            onClick={() => onHandleClick(todo._id, action)}
+          >
+            Delete
+          </Button>
+        </div>
+      );
+    }
+  };
+
   return (
     <>
-      <Card>
+      <Card className="todos">
         {todos?.todos?.map((todo: any, index: number) => {
           return (
             <div key={index}>
-              <CardContent>
+              <CardContent className="todo">
                 <Typography>{todo.title}</Typography>
-                <Typography>{todo.end_date}</Typography>
-              </CardContent>
-              <CardContent>
+                <Typography>{new Date(todo.end_date).toLocaleDateString()}</Typography>
                 <ButtonGroup variant="contained">
-                  <Button
-                    color="primary"
-                    value={todo._id}
-                    onClick={() => onHandleClick(todo._id, (action = "update"))}
-                  >
-                    Done
-                  </Button>
-                  <Button
-                    color="secondary"
-                    value={todo._id}
-                    onClick={() => onHandleClick(todo._id, action)}
-                  >
-                    Delete
-                  </Button>
+                  {renderButtons(todo)}
                 </ButtonGroup>
               </CardContent>
             </div>

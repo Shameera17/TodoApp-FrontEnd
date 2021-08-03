@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import TodoList from './components/TodoList/TodoList';
 import Header from './components/TopBar/Header';
 import TodoAdd from './components/TodoAdd/TodoAdd';
