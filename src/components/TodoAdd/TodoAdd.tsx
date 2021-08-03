@@ -32,6 +32,7 @@ function TodoAdd() {
   return (
     <Grid className="addTodo">
       <TextField
+      className="inputText"
         label="Todo Title"
         name="title"
         value={Title}
@@ -41,6 +42,7 @@ function TodoAdd() {
         }}
       />
       <TextField
+      className="inputText2"
         label="YYYY-MM-DD"
         name="End Date"
         value={EndDate}
@@ -60,7 +62,7 @@ function TodoAdd() {
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider> */}
-      <Button variant="contained" onClick={onHandleClick}>Add Todo</Button>
+      <Button className="btn" variant="contained" onClick={onHandleClick}>Add Todo</Button>
     </Grid>
   );
 }

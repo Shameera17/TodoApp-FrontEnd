@@ -80,9 +80,9 @@ function TodoList() {
           return (
             <div key={index}>
               <CardContent className="todo">
-                <Typography>{todo.title}</Typography>
-                <Typography>{new Date(todo.end_date).toLocaleDateString()}</Typography>
-                <ButtonGroup variant="contained">
+                <Typography className="labels">{todo.title}</Typography>
+                <Typography className="labels">{new Date(todo.end_date).toLocaleDateString()}</Typography>
+                <ButtonGroup className="btnGroup">
                   {renderButtons(todo)}
                 </ButtonGroup>
               </CardContent>
