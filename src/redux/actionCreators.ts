@@ -49,6 +49,8 @@ export const UpdateTodoState = (id: string) => async () => {
     console.log(id)
     const response = await http.put(`/todos/${id}`);
     console.log("response", response.data);
+    return response;
+
   } catch (error) {
     console.log("error");
   }
@@ -59,6 +61,7 @@ export const DeleteTodo = (id: string) => async () => {
     console.log(id)
     const response = await http.delete(`/todos/${id}`);
     console.log("response", response.data);
+    return response;
   } catch (error) {
     console.log("error");
 

@@ -29,10 +29,11 @@ function TodoList() {
     setTodos(todos);
   }, [Reload]);
 
-  function onHandleClick(id: string, action: string) {
+  async function onHandleClick(id: string, action: string) {
     if (action === "update") {
       try {
-        dispatch(UpdateTodoState(id));
+        const res = await dispatch(UpdateTodoState(id));
+        console.log("todo updated", res);
       } catch (error) {
         console.log(error);
       } finally {
@@ -40,7 +41,8 @@ function TodoList() {
       }
     } else if (action === "delete") {
       try {
-        dispatch(DeleteTodo(id));
+        const res = await dispatch(DeleteTodo(id));
+        console.log("todo deleted", res);
       } catch (e) {
         console.log(e);
       } finally {
@@ -81,7 +83,9 @@ function TodoList() {
             variant="contained"
             color="error"
             value={todo._id}
-            onClick={() => {onHandleClick(todo._id, action)}}
+            onClick={() => {
+              onHandleClick(todo._id, action);
+            }}
           >
             Delete
           </Button>
