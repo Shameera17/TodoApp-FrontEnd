@@ -4,22 +4,16 @@
 
   text-align: center;
 }
-.topHeader{
-  // position: fixed;
-  width: 100%;
-  // margin: 0.4rem;
-  .header{
+.topHeader {
+  .header {
     background-color: black;
-    border-radius: 2px;
-    
-    .headerText{
-      font-family: 'Courier New', Courier, monospace;
+    .headerText {
+      font-family: "Courier New", Courier, monospace;
       color: white;
       font-weight: 700;
     }
   }
 }
-
 
 .addTodo {
   width: 50rem;
@@ -58,16 +52,15 @@
       width: 20rem;
       font-size: large;
       font-weight: 500;
-      
     }
-    .done{
+    .done {
       text-decoration: line-through 2px;
     }
 
     .btnGroup {
       width: 12rem;
-      
-      .btn{
+
+      .btn {
         margin: 0 0.2rem;
         width: 5rem;
       }
