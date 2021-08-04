@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button, Grid } from "@material-ui/core";
+import { TextField, Button, Grid, Tooltip } from "@material-ui/core";
 import { AddTodo } from "../../redux/actionCreators";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 
 function TodoAdd() {
@@ -29,6 +29,7 @@ function TodoAdd() {
   return (
     <Grid className="addTodo">
       <TextField
+        required
         className="inputText"
         label="Todo Title"
         name="title"
@@ -38,16 +39,19 @@ function TodoAdd() {
           setTitle(e.target.value);
         }}
       />
-      <TextField
-        className="inputText2"
-        label="YYYY-MM-DD"
-        name="End Date"
-        value={EndDate}
-        variant="outlined"
-        onChange={(e) => {
-          setEndDate(e.target.value);
-        }}
-      />
+      <Tooltip title="End Date" aria-label="End Date">
+        <TextField
+          required
+          className="inputText2"
+          label="YYYY-MM-DD"
+          name="End Date"
+          value={EndDate}
+          variant="outlined"
+          onChange={(e) => {
+            setEndDate(e.target.value);
+          }}
+        />
+      </Tooltip>
       <Button
         className="btn"
         variant="contained"

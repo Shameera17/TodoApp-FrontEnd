@@ -1,12 +1,9 @@
-import { TodoInterface, Store } from "./type";
 import {
   TODO_SUCCESS,
   TodoDispatchTypes,
   TODO_FAIL,
   TODO_LOADING,
-  ADD_TODO,
 } from "./actionTypes";
-import { AddTodo } from "./actionCreators";
 
 
 

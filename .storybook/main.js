@@ -8,6 +8,6 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
     "@storybook/addon-postcss",
-    "storybook-css-modules-preset",
+    "storybook-css-modules-preset"
   ]
 }

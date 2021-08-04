@@ -6,7 +6,6 @@ import {
   TODO_SUCCESS,
 } from "./actionTypes";
 import axios from "axios";
-import {TodoInterface} from './type'
 const http = axios.create({
   baseURL: "http://localhost:8080/api/",
   headers: {
