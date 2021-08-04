@@ -29,16 +29,16 @@ Main components of the layout template
 ## User Guide
 
 1. Add a todo
-Enter the todo title/body in the text field 
-Enter the End date in the next text field
-Click Add Todo Button
+- Enter the todo title/body in the firts text field 
+- Enter the End date in the next text field
+- Click Add Todo Button
 
 2. Load the Todos
-Click the refresh button
+- Click the refresh button
 
 3. Update or Delete Todo
-Click the update button to update the todo state to mark as Done
-Click the delete button to delete the todo 
+- Click the update button to update the todo state to mark as Done
+- Click the delete button to delete the todo 
 
 ## Visit repository 
 
